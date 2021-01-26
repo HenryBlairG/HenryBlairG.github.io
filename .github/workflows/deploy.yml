@@ -21,3 +21,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         email: henry.blair.g@gmail.com
+        build_dir: app/build
