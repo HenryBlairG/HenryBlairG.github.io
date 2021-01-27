@@ -1,3 +1,31 @@
+:root {
+  /* Paleta de Colores: https://www.presenciaweb.net/tools/circulo-cromatico/#3d31Tw0w0w0w0 */
+  --main_color_base: #00A287;
+  --main_color_var1: #1E796A;
+  --main_color_var2: #006957;
+  --main_color_var3: #34D0B6;
+  --main_color_var4: #5ED0BD;
+  
+  --scnd_color_base: #FFA200;
+  --scnd_color_var1: #BF8B30;
+  --scnd_color_var2: #A66A00;
+  --scnd_color_var3: #FFBA40;
+  --scnd_color_var4: #FFCC73;
+
+  --thrd_color_base: #F5001D;
+  --thrd_color_var1: #B72E3E;
+  --thrd_color_var2: #9F0013;
+  --thrd_color_var3: #FA3E54;
+  --thrd_color_var4: #FA7081;
+
+  --font_color_base: #000000;
+  --font_color_var1: #7F7F7F;
+  --font_color_var2: #FFFFFF;
+  --font_color_var3: #7F7F7F;
+  --font_color_var4: #000000;
+}
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
