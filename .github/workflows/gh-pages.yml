@@ -22,15 +22,13 @@ jobs:
 
       - name: Install Flutter
         run: sudo snap install flutter --classic
-      - name: Install Dependencies
-        run: flutter pub get
-      - name: Enable Web Support
-        run: flutter config --enable-web
-      - name: Build
-        run: flutter build web
       
       - name: Deploy
         run: |
+          ls .
+          flutter pub get
+          flutter config --enable-web
+          flutter build web
           cd build/web
           git config --global user.name "${{ github.actor }}"
           git init
