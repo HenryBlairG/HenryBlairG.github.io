@@ -21,7 +21,7 @@ jobs:
             ${{ runner.os }}-flutter-
 
       - name: Install Flutter
-        run: snap install flutter --classic
+        run: sudo snap install flutter --classic
       - name: Install Dependencies
         run: flutter pub get
       - name: Enable Web Support
