@@ -1,41 +1,41 @@
 name: Deploy2GithubPages
   
-  on:
-    push: 
-      branches: [ main ]
-  
-  jobs:
-    build-web:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
+on:
+  push: 
+    branches: [ main ]
 
-        - name: Cache
-          uses: actions/cache@v2.1.5
-          with:
-            path: |
-              ~/cache
-              !~/cache/exclude
-            key: ${{ runner.os }}-flutter-${{ hashFiles('**/pubspec.lock') }}
-            restore-keys: |
-              ${{ runner.os }}-flutter-
+jobs:
+  build-web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
 
-        - name: Install Flutter
-          run: snap install flutter --classic
-        - name: Install Dependencies
-          run: flutter pub get
-        - name: Enable Web Support
-          run: flutter config --enable-web
-        - name: Build
-          run: flutter build web
-        
-        - name: Deploy
-          run: |
-            cd build/web
-            git config --global user.name "${{ github.actor }}"
-            git init
-            git branch -m master main
-            git add --all
-            git commit -m"Deploy on $(date +%c)"
-            git push -f https://${{ github.actor }}:${{ github.token }}@github.com/${{ github.repository }}.git main:gh-pages
-          shell: bash
+      - name: Cache
+        uses: actions/cache@v2.1.5
+        with:
+          path: |
+            ~/cache
+            !~/cache/exclude
+          key: ${{ runner.os }}-flutter-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-flutter-
+
+      - name: Install Flutter
+        run: snap install flutter --classic
+      - name: Install Dependencies
+        run: flutter pub get
+      - name: Enable Web Support
+        run: flutter config --enable-web
+      - name: Build
+        run: flutter build web
+      
+      - name: Deploy
+        run: |
+          cd build/web
+          git config --global user.name "${{ github.actor }}"
+          git init
+          git branch -m master main
+          git add --all
+          git commit -m"Deploy on $(date +%c)"
+          git push -f https://${{ github.actor }}:${{ github.token }}@github.com/${{ github.repository }}.git main:gh-pages
+        shell: bash
