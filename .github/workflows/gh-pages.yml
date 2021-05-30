@@ -10,27 +10,25 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Cache
-        uses: actions/cache@v2.1.5
-        with:
-          path: |
-            ~/cache
-            !~/cache/exclude
-          key: ${{ runner.os }}-flutter-${{ hashFiles('**/pubspec.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-flutter-
+      # - name: Cache
+      #   uses: actions/cache@v2.1.5
+      #   with:
+      #     path: |
+      #       ~/cache
+      #       !~/cache/exclude
+      #     key: ${{ runner.os }}-flutter-${{ hashFiles('**/pubspec.lock') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-flutter-
 
       - name: Install Flutter
-        run: snap install flutter --classic
-      - name: Install Dependencies
-        run: flutter pub get
-      - name: Enable Web Support
-        run: flutter config --enable-web
-      - name: Build
-        run: flutter build web
+        run: sudo snap install flutter --classic
       
-      - name: Deploy
+      - name: Build & Deploy
         run: |
+          flutter create .
+          flutter pub get
+          flutter config --enable-web
+          flutter build web
           cd build/web
           git config --global user.name "${{ github.actor }}"
           git init
