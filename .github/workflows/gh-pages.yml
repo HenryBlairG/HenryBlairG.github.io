@@ -25,7 +25,7 @@ jobs:
       
       - name: Build & Deploy
         run: |
-          cd .
+          flutter create .
           flutter pub get
           flutter config --enable-web
           flutter build web
