@@ -9,5 +9,5 @@ jobs:
   test-actions:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup
+      - uses: HenryBlairG/HenryBlairG.github.io/actions/setup
       - run: echo "success!!"
