@@ -18,9 +18,5 @@ runs:
       shell: bash
 
     - name: Config Project
-      run: flutter config \
-        --enable-web \
-        --enable-linux-desktop \
-        --enable-macos-desktop \
-        --enable-windows-desktop
+      run: flutter config --enable-web --enable-linux-desktop --enable-macos-desktop --enable-windows-desktop
       shell: bash
