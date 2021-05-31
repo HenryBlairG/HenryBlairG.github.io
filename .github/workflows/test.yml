@@ -2,6 +2,7 @@
 name: Test Actions
 on: 
   workflow_dispatch:
+    branches: '*'
 
 jobs:
   test-actions:
