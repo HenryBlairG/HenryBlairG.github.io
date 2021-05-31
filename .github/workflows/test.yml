@@ -1,8 +1,9 @@
 # For testing out my actions
 name: Test Actions
 on: 
+  push:
+    branches: [ dev ]
   workflow_dispatch:
-    branches: '*'
 
 jobs:
   test-actions:
