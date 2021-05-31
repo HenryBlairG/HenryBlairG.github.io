@@ -1,1 +1,11 @@
 # For testing out my actions
+name: Test Actions
+on: 
+  action_dispatch:
+
+jobs:
+  test-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup
+      - run: echo "success!!"

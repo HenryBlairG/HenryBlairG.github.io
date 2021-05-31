@@ -1,0 +1,22 @@
+name: 'SetUp Flutter'
+description: 'Fetch Flutter and install everything!'
+inputs:
+outputs:
+runs:
+  using: "composite"
+  steps:
+    - name: Install Flutter
+      run: sudo snap install flutter --classic
+      shell: bash
+
+    - name: Initialize Project
+      run: flutter create .
+      shell: bash
+
+    - name: Install Dependencies
+      run: flutter pub get
+      shell: bash
+
+    - name: Config Project
+      run: flutter config --enable-web --enable-linux-desktop --enable-macos-desktop --enable-windows-desktop
+      shell: bash
