@@ -1,7 +1,7 @@
 name: 'SetUp Flutter'
 description: 'Fetch Flutter and install everything!'
-inputs:
-outputs:
+# inputs:
+# outputs:
 runs:
   using: "composite"
   steps:
