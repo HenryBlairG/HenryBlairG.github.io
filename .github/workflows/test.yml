@@ -1,7 +1,7 @@
 # For testing out my actions
 name: Test Actions
 on: 
-  action_dispatch:
+  workflow_dispatch:
 
 jobs:
   test-actions:
