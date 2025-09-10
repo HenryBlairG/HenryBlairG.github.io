@@ -2,21 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:me/src/features/home/application/home_service.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({
+    Key? key,
+    required this.title,
+    required this.homeService,
+  }) : super(key: key);
 
   final String title;
+  final HomeService homeService;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final _homeService = HomeService();
+  late final HomeService _homeService;
+
+  @override
+  void initState() {
+    super.initState();
+    _homeService = widget.homeService;
+  }
 
   void _incrementCounter() {
-    setState(() {
-      _homeService.incrementCounter();
-    });
+    // setState is not needed here because ValueListenableBuilder will rebuild the widget
+    _homeService.incrementCounter();
   }
 
   @override
@@ -29,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               'You have pushed the button this many times:',
             ),
             ValueListenableBuilder<int>(
@@ -47,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }

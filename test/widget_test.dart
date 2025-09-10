@@ -1,30 +1,53 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility that Flutter provides. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:me/src/features/home/presentation/view/home_page.dart';
+import 'package:mockito/mockito.dart';
 
-import 'package:me/src/app/app.dart';
+
+import 'mocks.mocks.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+  late MockHomeService mockHomeService;
 
-    // Verify that our counter starts at 0.
+  setUp(() {
+    mockHomeService = MockHomeService();
+  });
+
+  testWidgets('MyHomePage displays initial counter value', (WidgetTester tester) async {
+    when(mockHomeService.counter).thenReturn(ValueNotifier(0));
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: MyHomePage(
+          title: 'Test Home Page',
+          homeService: mockHomeService,
+        ),
+      ),
+    );
+
     expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+  });
 
-    // Tap the '+' icon and trigger a frame.
+  testWidgets('MyHomePage increments counter on button press', (WidgetTester tester) async {
+    final counter = ValueNotifier(0);
+    when(mockHomeService.counter).thenReturn(counter);
+    when(mockHomeService.incrementCounter()).thenAnswer((_) {
+      counter.value++;
+    });
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: MyHomePage(
+          title: 'Test Home Page',
+          homeService: mockHomeService,
+        ),
+      ),
+    );
+
     await tester.tap(find.byIcon(Icons.add));
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
+    verify(mockHomeService.incrementCounter()).called(1);
   });
 }
