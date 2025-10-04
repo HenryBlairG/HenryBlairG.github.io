@@ -10,7 +10,7 @@ This directory contains all the Dart code for the application.
 
 This is the entry point of the application. It contains the `main()` function that runs the app.
 
-### `lib/src//`
+### `lib/src/`
 
 This directory contains the source code of the application, divided into the following subdirectories:
 
