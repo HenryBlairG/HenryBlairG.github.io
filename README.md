@@ -20,4 +20,17 @@ samples, guidance on mobile development, and a full API reference.
 For a detailed explanation of the project structure, please see [FolderStructure.md](/docs/FolderStructure.md).
 
 # HenryBlairG.github.io
-My Site and Project index
+This is going to be my personal site. I'm going to be adding on more elements, but this is the main structure the site should follow:
+```
+Main: Description of myself, outlining my interests and roles I would be interested in.
+│
+├── Skills: Tools, programming languages, and knowledge-based skills I have
+│
+├── Experience: My professional trajectory so far
+│
+├── Contact: Relevant links for people interested in my profile
+│   │
+│   └── Includes links to all relevant channels
+│
+└── Portfolio: A link to a list of all my personal projects
+```
