@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:me/src/features/home/application/home_service.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({
@@ -12,10 +13,10 @@ class MyHomePage extends StatefulWidget {
   final HomeService homeService;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  MyHomePageState createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePageState extends State<MyHomePage> {
   late final HomeService _homeService;
 
   @override
@@ -39,24 +40,24 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
+            Text(
               'You have pushed the button this many times:',
+              style: ShadTheme.of(context).textTheme.p,
             ),
             ValueListenableBuilder<int>(
               valueListenable: _homeService.counter,
               builder: (context, value, child) {
                 return Text(
                   '$value',
-                  style: Theme.of(context).textTheme.headlineMedium,
+                  style: ShadTheme.of(context).textTheme.h1,
                 );
               },
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: ShadButton(
         onPressed: _incrementCounter,
-        tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
     );
