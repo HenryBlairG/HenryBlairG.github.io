@@ -1,53 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:me/src/features/home/presentation/view/home_page.dart';
-import 'package:mockito/mockito.dart';
-
-
-import 'mocks.mocks.dart';
+import 'package:me/src/app/app.dart';
 
 void main() {
-  late MockHomeService mockHomeService;
+  testWidgets('MyApp shows MainScreen', (WidgetTester tester) async {
+    await tester.pumpWidget(const MyApp());
 
-  setUp(() {
-    mockHomeService = MockHomeService();
+    expect(find.byType(MainScreen), findsOneWidget);
   });
 
-  testWidgets('MyHomePage displays initial counter value', (WidgetTester tester) async {
-    when(mockHomeService.counter).thenReturn(ValueNotifier(0));
+  testWidgets('MainScreen has a VerticalNavBar and a PageView', (WidgetTester tester) async {
+    await tester.pumpWidget(const MaterialApp(home: MainScreen()));
 
-    await tester.pumpWidget(
-      MaterialApp(
-        home: MyHomePage(
-          title: 'Test Home Page',
-          homeService: mockHomeService,
-        ),
-      ),
-    );
-
-    expect(find.text('0'), findsOneWidget);
+    expect(find.byType(VerticalNavBar), findsOneWidget);
+    expect(find.byType(PageView), findsOneWidget);
   });
 
-  testWidgets('MyHomePage increments counter on button press', (WidgetTester tester) async {
-    final counter = ValueNotifier(0);
-    when(mockHomeService.counter).thenReturn(counter);
-    when(mockHomeService.incrementCounter()).thenAnswer((_) {
-      counter.value++;
-    });
+  testWidgets('Tapping VerticalNavBar changes the page', (WidgetTester tester) async {
+    await tester.pumpWidget(const MaterialApp(home: MainScreen()));
 
-    await tester.pumpWidget(
-      MaterialApp(
-        home: MyHomePage(
-          title: 'Test Home Page',
-          homeService: mockHomeService,
-        ),
-      ),
-    );
+    // Initially, HomePage should be visible
+    expect(find.byType(HomePage), findsOneWidget);
 
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // Tap on the 'About' nav item
+    await tester.tap(find.text('About'));
+    await tester.pumpAndSettle();
 
-    expect(find.text('1'), findsOneWidget);
-    verify(mockHomeService.incrementCounter()).called(1);
+    // Now, AboutPage should be visible
+    expect(find.byType(AboutPage), findsOneWidget);
   });
 }
