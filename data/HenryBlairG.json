@@ -1,0 +1,201 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": "2025-10-08",
+  "candidate": {
+    "id": "henry-blair-gonzalez",
+    "name": "Henry Blair Gonzalez",
+    "surname": "Blair Gonzalez",
+    "interests": [
+      "Software Development",
+      "Cybersecurity",
+      "Data Science",
+      "*Ops (DevOps, SecOps, DataOps, MLOps)",
+      "Cloud Computing",
+      "Operations Research",
+      "AI & Machine Learning",
+      "Agile Project Management",
+      "Automation"
+    ],
+    "work_locations": {
+      "preferred": "remote",
+      "modalities": [
+        {"remote": [ "Anywhere" ]},
+        {"onsite": [ "Europe", "North America", "Oceania", "Brasil", "Japan", "South Korea", "Dubai" ]},
+        {"hybrid": [ "Europe", "North America", "Oceania", "Brasil", "Japan", "South Korea", "Dubai" ]}
+      ],
+      "willing_to_relocate": true
+    },
+    "contact": {
+      "locations":[
+        {
+          "location_id": 1,
+          "country": "Chile",
+          "code": "CL",
+          "flag": "🇨🇱",
+          "address": "San Sebastian 2909",
+          "address_details": "depto. 502",
+          "neighborhood": "Las Condes",
+          "city": "Santiago",
+          "state": "Región Metropolitana",
+          "zip": "7550118",
+          "phone_country_code": "+56",
+          "phone_number": "944361035"
+        }
+      ],
+      "email": "henry.blair.g@gmail.com",
+      "profiles": {
+        "linkedin": "https://www.linkedin.com/in/henry-blair-gonzalez-75911173/",
+        "github": "https://github.com/HenryBlairG"
+      }
+    }
+  },
+  "employment": [
+    {
+      "company": "Tiquinet",
+      "location_id": 1,
+      "roles": [
+        {
+          "title": "Customer Support and IT Resource Administration",
+          "start_date": "2020-05",
+          "end_date": "2021-03",
+          "responsibilities": [
+            "Automation of customer message delivery",
+            "Scheduling of on-site technician visits"
+          ]
+        }
+      ]
+    },
+    {
+      "company": "SSINDEX",
+      "location_id": 1,
+      "roles": [
+        {
+          "title": "IT Programmer Analyst",
+          "start_date": "2021-03",
+          "end_date": "2022-07",
+          "responsibilities": [
+            "Development of software solutions"
+          ]
+        },
+        {
+          "title": "Software Engineer",
+          "start_date": "2022-07",
+          "end_date": "2022-12",
+          "responsibilities": [
+            "IT project management",
+            "IT resource management"
+          ]
+        },
+        {
+          "title": "Senior Software Engineer",
+          "start_date": "2023-01",
+          "end_date": "2024-05",
+          "responsibilities": [
+            "IT project management",
+            "IT resource management"
+          ]
+        },
+        {
+          "title": "IT Manager",
+          "start_date": "2024-06",
+          "end_date": null,
+          "present": true,
+          "responsibilities": [
+            "IT project planning",
+            "IT resource management",
+            "Development and maintenance of new products"
+          ]
+        }
+      ]
+    }
+  ],
+  "skills": {
+    "programming_languages": [
+      "Python3",
+      "Javascript/Typescript",
+      "Dart",
+      "C/C++",
+      "ShellScript (bash, zsh)",
+      "Ruby",
+      "HTML",
+      "CSS"
+    ],
+    "frameworks_and_tools": [
+      "Rails",
+      "Rspec",
+      "NodeJs",
+      "Koa",
+      "React",
+      "React Native",
+      "Anaconda",
+      "Pipenv",
+      "Jupyter",
+      "Tableau",
+      "Power BI (web)",
+      "Flask",
+      "Selenium",
+      "Flutter",
+      "Git",
+      "Docker",
+      "docker-compose",
+      "Postman",
+      "Insomnia",
+      "Github Actions",
+      "Pulumi (IaC)"
+    ],
+    "databases": [
+      "Postgres",
+      "Mongo",
+      "Fauna",
+      "Snowflake"
+    ],
+    "platforms_and_services": [
+      "Github",
+      "Heroku",
+      "AWS",
+      "Google Colaboratory"
+    ]
+  },
+  "languages": [
+    {
+      "language": "Español",
+      "proficiency": "Nativo"
+    },
+    {
+      "language": "Inglés",
+      "proficiency": "Básico"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Whatsapp Sender",
+      "description": "Bot que envía mensajes por Whatsapp.",
+      "tech_stack": ["Python3", "Selenium"]
+    },
+    {
+      "name": "Deploy plataforma Pulse (SSINDEX)",
+      "description": "Plataforma de auto atención.",
+      "tech_stack": []
+    },
+    {
+      "name": "Desarrollo Monitor (SSINDEX)",
+      "description": "Refactor de arquitectura y Data Ops.",
+      "tech_stack": []
+    },
+    {
+      "name": "Canvas Client",
+      "description": "Script que descarga archivos de Canvas.",
+      "tech_stack": ["Python3"]
+    },
+    {
+      "name": "Modernización plataforma Suite (SSINDEX)",
+      "description": "Refactor de arquitectura.",
+      "tech_stack": []
+    },
+    {
+      "name": "ISO 27001 SSINDEX Certification",
+      "description": "Management y compliance de plataformas.",
+      "tech_stack": []
+    }
+  ]
+}
