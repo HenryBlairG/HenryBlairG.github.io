@@ -1,130 +1,147 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/widgets/buttons.dart';
+import '../../../../core/widgets/links.dart';
 import '../../../../core/widgets/styles.dart';
+import '../../../home/domain/person.dart';
+import '../../../home/presentation/providers/person_providers.dart';
 
-class ContactPage extends StatefulWidget {
+class ContactPage extends ConsumerWidget {
   const ContactPage({super.key});
 
   @override
-  ContactPageState createState() => ContactPageState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final personFuture = ref.watch(personServiceProvider).getPerson();
+    final formKey = GlobalKey<FormState>();
 
-class ContactPageState extends State<ContactPage> {
-  final _formKey = GlobalKey<FormState>();
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(40.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Contact Me',
-              style: headline1,
-            ),
-            const SizedBox(height: 40),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Form(
-                    key: _formKey,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        TextFormField(
-                          decoration: const InputDecoration(
-                            labelText: 'Email',
-                            border: OutlineInputBorder(),
-                          ),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your email';
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(height: 20),
-                        TextFormField(
-                          decoration: const InputDecoration(
-                            labelText: 'Subject',
-                            border: OutlineInputBorder(),
-                          ),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter a subject';
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(height: 20),
-                        TextFormField(
-                          decoration: const InputDecoration(
-                            labelText: 'Message',
-                            border: OutlineInputBorder(),
-                          ),
-                          maxLines: 5,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter a message';
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(height: 20),
-                        PrimaryButton(
-                          text: 'Send Message',
-                          onPressed: () {
-                            if (_formKey.currentState!.validate()) {
-                              // Process data
-                            }
-                          },
-                        ),
-                      ],
-                    ),
+      body: FutureBuilder<Person>(
+        future: personFuture,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            final person = snapshot.data!;
+            return Padding(
+              padding: const EdgeInsets.all(40.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Contact Me',
+                    style: headline1,
                   ),
-                ),
-                const SizedBox(width: 40),
-                Expanded(
-                  flex: 1,
-                  child: Column(
+                  const SizedBox(height: 40),
+                  Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'Alternatively, you can reach me at:',
-                        style: headline2,
+                      Expanded(
+                        flex: 2,
+                        child: Form(
+                          key: formKey,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              TextFormField(
+                                decoration: const InputDecoration(
+                                  labelText: 'Email',
+                                  border: OutlineInputBorder(),
+                                ),
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter your email';
+                                  }
+                                  return null;
+                                },
+                              ),
+                              const SizedBox(height: 20),
+                              TextFormField(
+                                decoration: const InputDecoration(
+                                  labelText: 'Subject',
+                                  border: OutlineInputBorder(),
+                                ),
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter a subject';
+                                  }
+                                  return null;
+                                },
+                              ),
+                              const SizedBox(height: 20),
+                              TextFormField(
+                                decoration: const InputDecoration(
+                                  labelText: 'Message',
+                                  border: OutlineInputBorder(),
+                                ),
+                                maxLines: 5,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter a message';
+                                  }
+                                  return null;
+                                },
+                              ),
+                              const SizedBox(height: 20),
+                              PrimaryButton(
+                                text: 'Send Message',
+                                onPressed: () {
+                                  if (formKey.currentState!.validate()) {
+                                    // Process data
+                                  }
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
-                      const SizedBox(height: 20),
-                      ListTile(
-                        leading: const Icon(Icons.email),
-                        title: const Text('your.email@example.com'),
-                        onTap: () {},
-                      ),
-                      ListTile(
-                        leading: const Icon(Icons.code),
-                        title: const Text('GitHub'),
-                        onTap: () {},
-                      ),
-                      ListTile(
-                        leading: const Icon(Icons.business),
-                        title: const Text('LinkedIn'),
-                        onTap: () {},
-                      ),
-                      const SizedBox(height: 20),
-                      const Text(
-                        'I will try to respond within 24 hours.',
-                        style: bodyText1,
+                      const SizedBox(width: 40),
+                      Expanded(
+                        flex: 1,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Alternatively, you can reach me at:',
+                              style: headline2,
+                            ),
+                            const SizedBox(height: 20),
+                            TextLink(
+                              text: person.candidate.contact.email,
+                              href: 'mailto:${person.candidate.contact.email}',
+                              icon: Icons.email,
+                            ),
+                            const SizedBox(height: 20),
+                            TextLink(
+                              text: 'GitHub',
+                              href: person.candidate.contact.profiles.github,
+                              icon: Icons.code,
+                            ),
+                            const SizedBox(height: 20),
+                            TextLink(
+                              text: 'LinkedIn',
+                              href: person.candidate.contact.profiles.linkedin,
+                              icon: Icons.business,
+                            ),
+                            const SizedBox(height: 20),
+                            const Text(
+                              'I will try to respond within 24 hours.',
+                              style: bodyText1,
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
-                ),
-              ],
-            ),
-          ],
-        ),
+                ],
+              ),
+            );
+          } else if (snapshot.hasError) {
+            return Center(
+              child: Text('Error: ${snapshot.error}'),
+            );
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
       ),
     );
   }
