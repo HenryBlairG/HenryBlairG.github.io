@@ -22,13 +22,13 @@ class VerticalNavBarState extends State<VerticalNavBar> {
   int _selectedIndex = 0;
 
   final List<NavItem> _navItems = [
+    NavItem(title: 'Home', icon: Icons.home),
     NavItem(title: 'About', icon: Icons.person),
     NavItem(title: 'Skills', icon: Icons.lightbulb),
     NavItem(title: 'Projects', icon: Icons.work),
     NavItem(title: 'Experience', icon: Icons.history),
     NavItem(title: 'Blog', icon: Icons.article),
     NavItem(title: 'Contact', icon: Icons.email),
-    NavItem(title: 'Resume', icon: Icons.picture_as_pdf),
   ];
 
   @override
