@@ -27,12 +27,12 @@ class HomePage extends ConsumerWidget {
                     person.candidate.name,
                     style: headline1,
                   ),
-                  const Text(
+                  Text(
                     'Software Engineer / Full-Stack Developer',
                     style: headline2,
                   ),
                   const SizedBox(height: 20),
-                  const Text(
+                  Text(
                     'Building scalable solutions...',
                     style: bodyText1,
                   ),

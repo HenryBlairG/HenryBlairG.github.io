@@ -25,7 +25,7 @@ class ContactPage extends ConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Contact Me',
                     style: headline1,
                   ),
@@ -98,7 +98,7 @@ class ContactPage extends ConsumerWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
+                            Text(
                               'Alternatively, you can reach me at:',
                               style: headline2,
                             ),
@@ -121,7 +121,7 @@ class ContactPage extends ConsumerWidget {
                               icon: Icons.business,
                             ),
                             const SizedBox(height: 20),
-                            const Text(
+                            Text(
                               'I will try to respond within 24 hours.',
                               style: bodyText1,
                             ),

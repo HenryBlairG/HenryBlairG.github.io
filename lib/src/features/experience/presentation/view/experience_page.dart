@@ -22,7 +22,7 @@ class ExperiencePage extends ConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Experience',
                     style: headline1,
                   ),

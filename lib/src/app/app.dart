@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../core/widgets/styles.dart';
 import '../core/widgets/vertical_navbar.dart';
 import '../features/about/presentation/view/about_page.dart';
 import '../features/blog/presentation/view/blog_page.dart';
@@ -16,7 +17,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Henry Blair',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: MaterialColor(primaryColor.value, const <int, Color>{
+          50: primaryColor,
+          100: primaryColor,
+          200: primaryColor,
+          300: primaryColor,
+          400: primaryColor,
+          500: primaryColor,
+          600: primaryColor,
+          700: primaryColor,
+          800: primaryColor,
+          900: primaryColor,
+        }),
+        scaffoldBackgroundColor: backgroundColor,
       ),
       home: const MainScreen(),
     );

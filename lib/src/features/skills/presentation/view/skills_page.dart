@@ -29,7 +29,7 @@ class SkillsPage extends ConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Skills',
                     style: headline1,
                   ),

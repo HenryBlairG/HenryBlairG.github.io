@@ -39,7 +39,7 @@ class VerticalNavBarState extends State<VerticalNavBar> {
       child: Column(
         children: [
           const SizedBox(height: 40),
-          const Text(
+          Text(
             'Henry Blair',
             style: headline2,
           ),

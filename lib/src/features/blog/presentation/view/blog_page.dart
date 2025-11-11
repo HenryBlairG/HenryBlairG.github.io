@@ -25,7 +25,7 @@ class BlogPage extends ConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Blog',
                     style: headline1,
                   ),

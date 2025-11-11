@@ -23,7 +23,7 @@ class ProjectsPage extends ConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Projects',
                     style: headline1,
                   ),

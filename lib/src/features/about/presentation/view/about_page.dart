@@ -31,7 +31,7 @@ class AboutPage extends ConsumerWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                        Text(
                           'About Me',
                           style: headline1,
                         ),
