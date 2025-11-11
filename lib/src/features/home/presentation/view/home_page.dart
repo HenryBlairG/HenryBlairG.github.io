@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/widgets/buttons.dart';
 import '../../../../core/widgets/links.dart';
 import '../../../../core/widgets/styles.dart';
-import '../../domain/person.dart';
-import '../providers/person_providers.dart';
+import '../../../../data/models/person.dart';
+import '../../../../data/providers/person_provider.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});

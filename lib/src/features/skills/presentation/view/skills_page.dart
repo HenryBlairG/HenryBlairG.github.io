@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/widgets/styles.dart';
-import '../../../home/domain/person.dart';
-import '../../../home/presentation/providers/person_providers.dart';
+import '../../../../data/models/person.dart';
+import '../../../../data/providers/person_provider.dart';
 
 class SkillsPage extends ConsumerWidget {
   const SkillsPage({super.key});

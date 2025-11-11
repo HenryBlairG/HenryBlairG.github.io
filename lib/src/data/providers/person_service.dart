@@ -1,7 +1,7 @@
 
 import 'dart:convert';
 import 'package:flutter/services.dart';
-import '../domain/person.dart';
+import '../models/person.dart';
 
 class PersonService {
   Future<Person> getPerson() async {

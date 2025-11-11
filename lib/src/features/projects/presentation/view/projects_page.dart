@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/widgets/links.dart';
 import '../../../../core/widgets/styles.dart';
-import '../../../home/domain/person.dart';
-import '../../../home/presentation/providers/person_providers.dart';
+import '../../../../data/models/person.dart';
+import '../../../../data/providers/person_provider.dart';
 
 class ProjectsPage extends ConsumerWidget {
   const ProjectsPage({super.key});
